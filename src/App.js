@@ -88,6 +88,8 @@ class App extends React.Component {
     console.log(this.setState.displayUsers)
   }
 
+
+
   // render se apeleaza de fiecare data cand se modifica state-ul!\
   render() {
     return(
@@ -99,7 +101,6 @@ class App extends React.Component {
         background: this.state.background, 
         color: this.state.textColor
       }}>
-        <h1>HELLO WORLD!</h1>
         <UserAddForm updateUsers={(user) => this.updateUsers(user)}/>
         <button onClick={() => this.clickUserButton()}>Show Users</button>
         <button onClick={() => this.clickPostButton()}>Show Posts</button>

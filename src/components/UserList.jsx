@@ -15,6 +15,7 @@ class UserList extends React.Component {
                         email={user.email} 
                         salary={user.salary}
                         isGoldClient={user.isGoldClient}
+                        deleteButton={user.deleteButton}
                         />
                         )
                     })

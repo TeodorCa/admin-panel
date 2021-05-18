@@ -6,6 +6,7 @@ class UserAddForm extends React.Component {
         this.state = {
             name: '',
             email: '',
+            salary: '',
             isGoldClient: false
         } 
     } 
@@ -20,6 +21,11 @@ handleEmailChange(eventDetails) {
     this.setState({email: value})
 }
 
+handleSalaryChange(eventDetails) {
+    const value = eventDetails.target.value;
+    this.setState({salary: value})
+}
+
 handleIsGoldClientChange(eventDetails) {
     const value = eventDetails.target.checked;
     this.setState({isGoldClient: value})
@@ -31,6 +37,7 @@ handleSubmit(eventDetails) {
     const user = {
         name: this.state.name,
         email: this.state.email,
+        salary: this.state.salary,
         isGoldClient: this.state.isGoldClient
     }
     this.props.updateUsers(user);
@@ -55,6 +62,13 @@ handleSubmit(eventDetails) {
                     id="email" 
                     onChange={(eventDetails) => this.handleEmailChange(eventDetails)}
                     value={this.state.email}
+                />
+                                <label htmlFor="salary">Salary : </label>
+                <input 
+                    type="number" 
+                    id="salary" 
+                    onChange={(eventDetails) => this.handleSalaryChange(eventDetails)}
+                    value={this.state.salary}
                 />
                 <label htmlFor="client-gold">Client Gold</label>
                 <input 
