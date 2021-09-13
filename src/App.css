@@ -11,3 +11,45 @@ img {
   width: 60px;
   height: 60px;
 }
+
+.choose {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color, .show-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+}
+
+.change-color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#text-color, #background-color {
+  height: 2rem;
+  width: 6rem;
+}
+
+label {
+  font-size: 2vh;
+  font-style: oblique;
+}
+
+@media only screen and (max-width: 992px) {
+  .color {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+ .change-color label {
+    width: 8rem;
+    text-align: center;
+  }
+
+}

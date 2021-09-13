@@ -1,4 +1,5 @@
 import React from 'react';
+import './UserAddForm.css';
 
 class UserAddForm extends React.Component {
     constructor() {
@@ -48,38 +49,50 @@ handleSubmit(eventDetails) {
   render() {
       console.log(this.state)
         return (
+            <div className="form-style">
             <form onSubmit={(eventDetails) => this.handleSubmit(eventDetails)}>
-                <label htmlFor="name">Name : </label>
-                <input 
-                    type="text" 
-                    id="name" 
-                    onChange={(eventDetails) => this.handleNameChange(eventDetails)}
-                    value={this.state.name}
-                />
-                <label htmlFor="email">Email : </label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    onChange={(eventDetails) => this.handleEmailChange(eventDetails)}
-                    value={this.state.email}
-                />
-                                <label htmlFor="salary">Salary : </label>
-                <input 
-                    type="number" 
-                    id="salary" 
-                    onChange={(eventDetails) => this.handleSalaryChange(eventDetails)}
-                    value={this.state.salary}
-                />
-                <label htmlFor="client-gold">Client Gold</label>
-                <input 
-                    type="checkbox" 
-                    id="client-gold"
-                    onChange={(eventDetails) => this.handleIsGoldClientChange(eventDetails)}
-                    checked={this.state.isGoldClient}
-                />
+            <p className="text-center h3">Add a user to the list</p>
+                <div className="form-details">
+                    <div className="form-col1">
+                        <label htmlFor="name">Name  </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            onChange={(eventDetails) => this.handleNameChange(eventDetails)}
+                            value={this.state.name}
+                        />
 
-                <input type="submit" value="Adauga user"/>
+                        <label htmlFor="email">Email  </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            onChange={(eventDetails) => this.handleEmailChange(eventDetails)}
+                            value={this.state.email}
+                        />
+                    </div>
+                    <div className="form-col1">
+                        <label htmlFor="salary">Salary  </label>
+                        <input 
+                            type="number" 
+                            id="salary" 
+                            onChange={(eventDetails) => this.handleSalaryChange(eventDetails)}
+                            value={this.state.salary}
+                        />
+
+                        <div class="form-check form-switch m-2">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Client Gold</label>
+                            <input 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                id="flexSwitchCheckDefault" 
+                                onChange={(eventDetails) => this.handleIsGoldClientChange(eventDetails)}
+                                checked={this.state.isGoldClient}/>
+                        </div>
+                    </div>
+                </div>
+                <button className="btn btn-outline-dark mt-2" type="submit">Add User</button>
             </form>
+            </div>
         );
     }
 }

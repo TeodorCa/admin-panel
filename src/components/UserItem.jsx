@@ -1,33 +1,41 @@
-// Intotdeauna importam React, pentru a putea folosi JSX (JS combinat cu HTML).
 import React from 'react';
+import './UserItem.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 
-// Pentru o componenta care nu se schimba din momentul afisarii
-// este de ajuns sa facem o functie care returneaza un div.
+
 function UserItem(props) {
-    // ATENTIE! props este un obiect creat de REACT care are chei 'atributele' de HTML
-    // folosite la crearea componentei UserItem (vezi in App.js)
-    // pentru a extrage atributele obiectului props, folosim object destructuring (vezi Recapitulare)
-    const {name, email, salary, image, isGoldClient } = props;
-    // ATENTIE! intotdeauna este returnat un singur element HTML
-    // (de obicei un div), care le contine pe celelalte!
+
+    const {name, email, salary, isGoldClient, deleteUser, id } = props;
     
     return(
         <div className="user">
-            {/* Folosim {} pentru a integra variabile/expresii de JS in taguri de HTML. */}
-            <h2>{ name }</h2>
-            <img src={"https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"} alt="mars"/>
-            <p>{ email }</p>
-            <p>{ salary }</p>
-            <button> Delete User </button>
-            {
-                isGoldClient
-                    ? <p>CLIENT GOLD</p> 
-                    : null
-            }
+                <div className="d-flex w-25">
+                    <img src={"https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"} alt="mars"/>
+                    <div className="user-info">
+                        <p className="name">{ name }</p>
+                        <p className="email">{ email }</p>
+                    </div>
+                </div>
+                
+                {
+                    salary
+                        ? <p className="w-25 text-center">{ salary }</p>  
+                        : <p className="w-25 text-center">Sarac</p>
+                }
+                {
+                    isGoldClient
+                        ? <p className="w-25 text-center">Client GOLD</p> 
+                        : <p className="w-25 text-center">Client BASIC</p>
+                }
+                <div className='w-25 text-center'>
+                    <button type="button" className="btn" onClick={ () => deleteUser(id)}>
+                        <i className='bi bi-trash'></i>
+                    </button>
+                </div>  
         </div>
     );
 }
 
-// Pentru a putea fi utilizata in alte locuri, componenta trebuie exportata.
+
 export default UserItem;

@@ -1,0 +1,20 @@
+.user-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+
+
+}
+
+.fedssd {
+    margin-top: 2rem;
+    border-bottom: 0.1rem solid #5294e2;
+    padding-bottom: 0.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+    img {
+        display: none;
+    }
+}

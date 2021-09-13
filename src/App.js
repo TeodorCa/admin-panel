@@ -1,21 +1,17 @@
 import React from 'react';
-// nu uitati sa importati componentele folosite!
 import UserList from './components/UserList';
 import UserAddForm from './components/UserAddForm';
 import PostList from './components/PostList'
 import './App.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 
-// ATENTIE! Initial, in create-react-app, App era o functie.
-// Sintaxa in care App e o functie e pentru Hooks, iar noi nu o vom folosi.
-// App este o componenta complexa, ale carei componente se vor 
-// modifica pe parcurs => trebuie sa fie o clasa!
+
 class App extends React.Component {
-  // In constructor este apelat mai intai super, iar apoi este initializat state-ul
   constructor() {
     super();
     this.state = {
-      background: 'white',
+      background: '#EEE2E0',
       textColor: 'black',
       users: [],
       posts: [],
@@ -47,17 +43,8 @@ class App extends React.Component {
 
  
 
-  // changeColor e o metoda a clasei, care primeste ca parametru un event.
   changeColor(event) {
-    // VA INCURAJEZ pe parcursul cursului sa dati console.log de fiecare data cand aveti
-    // o eroare sau o nelamurire in legatura cu datele prelucrate. In event.target.value
-    // vedem ca avem culoarea selectata de utilizator, in format hexazecimal. Vom atribui
-    // aceasta culoare background-ului aplicatiei.
     console.log(event.target.value);
-    // ATENTIE! niciodata nu schimbam state-ul direct! (this.state = ...)
-    // Pentru a schimba state-ul, folosim metoda setState, care primeste ca parametru un obiect/functie.
-    // In cazul in care a primit un obiect, cheile obiectului sunt cheile state-ului ale
-    // caror valori se doresc a fi actualizate.
     this.setState({background: event.target.value});
   }
 
@@ -88,46 +75,55 @@ class App extends React.Component {
     console.log(this.setState.displayUsers)
   }
 
+  deleteUser(id) {
+    const filteredUsers = this.state.users.filter( (user) => {return user.id !== id});
+
+    this.setState(
+     { users: filteredUsers}
+    );
+  }
 
 
-  // render se apeleaza de fiecare data cand se modifica state-ul!\
   render() {
     return(
-      // Prin style putem trimite CSS catre componenta.
-      // ATENTIE! style este un obiect JS (primele acolade sunt de la sintaxa JSX).
-      // Tot din cauza JSX, nu putem avea atributul de HTML 'class'. In React e className.
+
       <div className="app" 
       style={{
         background: this.state.background, 
         color: this.state.textColor
       }}>
-        <UserAddForm updateUsers={(user) => this.updateUsers(user)}/>
-        <button onClick={() => this.clickUserButton()}>Show Users</button>
-        <button onClick={() => this.clickPostButton()}>Show Posts</button>
+        <div className="choose">
+          <p className="text-center h3" >Choose the color for your pleasure</p>
+          <div className="color">
+            <div className="change-color">
+              <label htmlFor="background-color">Background color</label>
+              <input type="color" id="background-color" onChange={(event) => this.changeColor(event)}/>
+            </div>
+            <div className="change-color">
+              <label htmlFor="text-color">Text color</label>
+              <input type="color" id="text-color" onChange={(event) => this.changeTextColor(event)}/>
+            </div>
+          </div>
+        </div>
+
+        <div className="choose">
+          <UserAddForm updateUsers={(user) => this.updateUsers(user)}/>
+        </div>
+
+        <div className="choose">
+          <p className="text-center h3">Choose what you want to display</p>
+          <div className="show-buttons">
+            <button type="button" className="btn btn-outline-dark" onClick={() => this.clickUserButton()}>Show Users</button>
+            <button type="button" className="btn btn-outline-dark" onClick={() => this.clickPostButton()}>Show Posts</button>
+          </div>
+        </div>
+
+        
         {
           this.state.displayUsers
-            ? <UserList users={this.state.users}/>
+            ? <UserList users={this.state.users} deleteUser={(id) =>  this.deleteUser(id)}/> 
             : <PostList posts={this.state.posts}/>
         }
-        
-        {/* Componenta UserItem este "instantiata"(creata).
-        In fisierul UserItem.jsx ea este doar declarata!! */}
-        {/* Atributele name si email sunt puse intr-un obiect (DE CATRE REACT!!)
-        si trimise catre componenta UserItem.jsx */}
-        {/* input type color ne permite sa selectam o culoare. Cand selectam noua culoare
-        se declanseaza evenimentul onChange, echivalent evenimentului onchange din HTML, sau
-        a lui change, folosit de addEventListener. Functia executata atunci este changeColor,
-        din clasa in care ne aflam. */}
-        {/* AVEM NEVOIE DE ARROW FUNCTION, altfel cand se apeleaza changeColor,
-        this-ul nu mai este intreaga clasa! Vom discuta la cursul 4 mai multe despre this
-        in React.
-        De asemenea, trebuie sa pasam EVENTUL functiei changeColor, pentru a putea
-        ulterior sa prelucram valoarea selectata de utilizator.
-        Foarte important este sa realizam ca lui onChange ii trimitem o functie(metoda),
-        nu un apel de functie! onChange va apela el respectiva functie cand se va schimba 
-        ceva! */}
-        <input type="color" onChange={(event) => this.changeColor(event)}/>
-        <input type="color" onChange={(event) => this.changeTextColor(event)}/>
         
         
       </div>

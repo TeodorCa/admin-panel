@@ -1,0 +1,38 @@
+.user {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.082);
+    padding-bottom: 0.5rem;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2vh;
+    margin: 0;
+}
+
+.user img {
+    height: 5rem;
+    width: 5rem;
+}
+
+.name {
+    font-size: 2vh;
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+}
+
+.email {
+    font-size: 1.5vh;
+    color: grey;
+    margin: 0;
+}
+
+.bi-trash:hover {
+    cursor: pointer;
+}
