@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      background: '#EEE2E0',
+      background: '#F0FAFF',
       textColor: 'black',
       users: [],
       posts: [],
@@ -87,7 +87,7 @@ class App extends React.Component {
   render() {
     return(
 
-      <div className="app" 
+      <div className="app font-link" 
       style={{
         background: this.state.background, 
         color: this.state.textColor
@@ -113,8 +113,8 @@ class App extends React.Component {
         <div className="choose">
           <p className="text-center h3">Choose what you want to display</p>
           <div className="show-buttons">
-            <button type="button" className="btn btn-outline-dark" onClick={() => this.clickUserButton()}>Show Users</button>
-            <button type="button" className="btn btn-outline-dark" onClick={() => this.clickPostButton()}>Show Posts</button>
+            <button type="button" className="btn btn-outline-primary" onClick={() => this.clickUserButton()}>Show Users</button>
+            <button type="button" className="btn btn-outline-primary" onClick={() => this.clickPostButton()}>Show Posts</button>
           </div>
         </div>
 

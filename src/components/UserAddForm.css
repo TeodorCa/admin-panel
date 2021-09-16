@@ -9,12 +9,12 @@ form {display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(255, 255, 255);
-    border: 2px solid rgba(10, 10, 10, 0.123);
+    border: 2px solid rgba(95, 159, 253, 0.123);
     --tw-border-opacity: 0.5;
     border-radius: 1rem;
     margin: 1rem;
     padding: 1rem;
-    width: 70%;
+    width: 90%;
     height: auto;
 }
 
@@ -22,11 +22,12 @@ form {display: flex;
     display: flex;
 }
 
-.form-col1, .form-col2 {
+.form-col1 {
     display: flex;
     flex-direction: column;
-    margin: 0.7rem;
+    width: 60%;
 }
+
 
 label {
     display: inline-block;
@@ -35,7 +36,7 @@ label {
 
 input {
     width: 75%;
-    border: 0.3px solid rgb(0, 0, 0);
+    border: 0.3px solid rgba(95, 159, 253, 0.3);
     border-radius: 3px;
     margin-bottom: 1rem !important;
     margin-top: 0.2rem !important;
@@ -47,6 +48,7 @@ input {
     .form-details {
         display: flex;
         flex-direction: column;
+        align-items: center;
         margin-top: 1rem;
     }
     label {
@@ -61,6 +63,13 @@ input {
         margin: 0;
     }
 
+    button {
+        /* margin-left: 2rem !important; */
+    }
+
+    .show-buttons {
+        width: 70%;
+    }
 }
 
 

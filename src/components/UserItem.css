@@ -12,8 +12,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 2vh;
     margin: 0;
+    word-break: break-all;
 }
 
 .user img {
@@ -22,17 +22,19 @@
 }
 
 .name {
-    font-size: 2vh;
     margin-top: 0;
     margin-bottom: 0.3rem;
 }
 
 .email {
-    font-size: 1.5vh;
     color: grey;
     margin: 0;
 }
 
 .bi-trash:hover {
     cursor: pointer;
+}
+
+.word-break {
+    word-break: break-all;
 }

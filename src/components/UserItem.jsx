@@ -20,13 +20,13 @@ function UserItem(props) {
                 
                 {
                     salary
-                        ? <p className="w-25 text-center">{ salary }</p>  
-                        : <p className="w-25 text-center">Sarac</p>
+                        ? <p className="w-25 text-center word-break">{ salary } RON</p>  
+                        : <p className="w-25 text-center word-break">0 RON</p>
                 }
                 {
                     isGoldClient
-                        ? <p className="w-25 text-center">Client GOLD</p> 
-                        : <p className="w-25 text-center">Client BASIC</p>
+                        ? <p className="w-25 text-center">GOLD</p> 
+                        : <p className="w-25 text-center">BASIC</p>
                 }
                 <div className='w-25 text-center'>
                     <button type="button" className="btn" onClick={ () => deleteUser(id)}>

@@ -7,6 +7,11 @@
   margin-top: 0;
 }
 
+.font-link {
+  font-family: 'Roboto', cursive;
+}
+
+
 img {
   width: 60px;
   height: 60px;
@@ -52,4 +57,13 @@ label {
     text-align: center;
   }
 
+ .choose {
+   padding-top: 3rem;
+ }
+
+ .show-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+}
 }

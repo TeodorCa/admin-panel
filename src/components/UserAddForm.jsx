@@ -69,8 +69,7 @@ handleSubmit(eventDetails) {
                             onChange={(eventDetails) => this.handleEmailChange(eventDetails)}
                             value={this.state.email}
                         />
-                    </div>
-                    <div className="form-col1">
+
                         <label htmlFor="salary">Salary  </label>
                         <input 
                             type="number" 
@@ -78,11 +77,12 @@ handleSubmit(eventDetails) {
                             onChange={(eventDetails) => this.handleSalaryChange(eventDetails)}
                             value={this.state.salary}
                         />
-
-                        <div class="form-check form-switch m-2">
-                            <label class="form-check-label" for="flexSwitchCheckDefault">Client Gold</label>
+                    </div>
+                    <div className="d-flex align-items-center">
+                        <div className="form-check form-switch">
+                            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">User Gold</label>
                             <input 
-                                class="form-check-input" 
+                                className="form-check-input" 
                                 type="checkbox" 
                                 id="flexSwitchCheckDefault" 
                                 onChange={(eventDetails) => this.handleIsGoldClientChange(eventDetails)}
@@ -90,7 +90,7 @@ handleSubmit(eventDetails) {
                         </div>
                     </div>
                 </div>
-                <button className="btn btn-outline-dark mt-2" type="submit">Add User</button>
+                <button className="btn btn-outline-primary mt-2" type="submit">Add User</button>
             </form>
             </div>
         );

@@ -17,4 +17,13 @@
     img {
         display: none;
     }
+    .user-list{
+        font-size: 5px;
+        padding-bottom: 1rem;
+    }
+    .fedssd {
+        display: flex;
+        align-items: center;
+    }
+    
 }
